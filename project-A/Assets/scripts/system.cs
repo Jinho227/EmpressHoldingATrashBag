@@ -13,6 +13,7 @@ public class system : MonoBehaviour
     public InputField priceInput;
     public Text yourMoneyText;
     int youMoney = 0;
+    int backClickCount = 0;
 
     void Start()
     {
@@ -43,7 +44,6 @@ public class system : MonoBehaviour
 
     public void bagClick(BagItemInfo bag)
     {
-        int count = 0;
         if (customers)
         {
             if (bag.bagQuality == customer[0].wantbagQuality)
@@ -52,13 +52,16 @@ public class system : MonoBehaviour
             }
             else
             {   
-                if(iscustomerGone(customer[0], count))
+                if(iscustomerGone(customer[0], backClickCount))
                 {
                     ctmDialog.text = "갈게";
+                    backClickCount = 0;
+                    customers = false;
                 }
                 else
                 {
                     ctmDialog.text = "다른건 없어?";
+                    backClickCount++;
                 }
             }
         }
@@ -70,13 +73,16 @@ public class system : MonoBehaviour
             }
             else
             {
-                if (iscustomerGone(customer[0], count))
+                if (iscustomerGone(customer[0], backClickCount))
                 {
                     ctmDialog.text = "갈게요";
+                    backClickCount = 0;
+                    customers = true;
                 }
                 else
                 {
                     ctmDialog.text = "다른건 없어요?";
+                    backClickCount++;
                 }
             }
         }
@@ -112,14 +118,14 @@ public class system : MonoBehaviour
             }
             return istrue;
         }
-        else if(count == 2)
+        else if(count <= 2)
         {
             if(randomProbability(tempCustomer.goneolothree))
         {
                 gone(customer);
                 istrue = true;
             }
-        else
+            else
             {
                 istrue = false;
             }
@@ -135,7 +141,7 @@ public class system : MonoBehaviour
     {
         int randomValue = Random.Range(0, 100);
 
-        if(randomValue >= probility)
+        if(randomValue <= probility)
         {
             return true;
         }
@@ -160,13 +166,11 @@ public class system : MonoBehaviour
         }
     }
 
-    IEnumerable customerChange(CustomerInfo goneCustomer, CustomerInfo inCustomer)
+    public void customerChange(CustomerInfo goneCustomer, CustomerInfo inCustomer)
     {
-        yield return new WaitForSeconds(2);
         goneCustomer.gameObject.SetActive(false);
         inCustomer.gameObject.SetActive(true);
         customersnum++;
-        yield return null;
     }
 
     public void priceOK()
