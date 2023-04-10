@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class system : MonoBehaviour
@@ -12,19 +13,17 @@ public class system : MonoBehaviour
     public Text ctmDialog;
     public InputField priceInput;
     public Text yourMoneyText;
-    int youMoney = 0;
+    public int youMoney = 0;
     int backClickCount = 0;
+    private BagItemInfo clickBag;
 
-    void Start()
+    void Awake()
     {
+        dataLoad();
         customer[0].gameObject.SetActive(true);
         customer[1].gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         isBag(bag);
+        yourMoneyText.text = youMoney.ToString();
     }
 
     public void isBag(BagItemInfo[] bag)
@@ -49,6 +48,8 @@ public class system : MonoBehaviour
             if (bag.bagQuality == customer[0].wantbagQuality)
             {
                 ctmDialog.text = "좋아 얼마?";
+                backClickCount = 0;
+                clickBag = bag;
             }
             else
             {   
@@ -70,6 +71,8 @@ public class system : MonoBehaviour
             if(bag.bagQuality == customer[1].wantbagQuality)
             {
                 ctmDialog.text = "좋아요 얼마?";
+                backClickCount = 0;
+                clickBag = bag;
             }
             else
             {
@@ -118,7 +121,7 @@ public class system : MonoBehaviour
             }
             return istrue;
         }
-        else if(count <= 2)
+        else if(count >= 2)
         {
             if(randomProbability(tempCustomer.goneolothree))
         {
@@ -153,16 +156,13 @@ public class system : MonoBehaviour
 
     public void gone(CustomerInfo[] tempCustomer)
     {
-        if(customersnum < 3)
+        if (customers)
         {
-            if (customers)
-            {
-                customerChange(tempCustomer[0], tempCustomer[1]);
-            }
-            else
-            {
-                customerChange(tempCustomer[1], tempCustomer[0]);
-            }
+            customerChange(tempCustomer[0], tempCustomer[1]);
+        }
+        else
+        {
+            customerChange(tempCustomer[1], tempCustomer[0]);
         }
     }
 
@@ -186,11 +186,67 @@ public class system : MonoBehaviour
         }
     }
 
-    public void isReasonable(int price, CustomerInfo customer)
+    public void isReasonable(int price, CustomerInfo tempcustomer)
     {
-        if(customer.maxPrice < price)
+        if((tempcustomer.maxPrice < price)||(tempcustomer.minPrice > price))
         {
-
+            if(iscustomerGone(tempcustomer, backClickCount))
+            {
+                ctmDialog.text = "그냥 갈래.";
+                customers = false;
+            }
+            else
+            {
+                ctmDialog.text = "다른 가격";
+                backClickCount++;
+            }
         }
+        else
+        {
+            ctmDialog.text = "잘샀어";
+            buyBag(price, tempcustomer);
+            gone(customer);
+            customers = customers ? false : true;
+            backClickCount = 0;
+
+            isBag(bag);
+            if (customersnum > 2)
+            {
+                dataSave();
+                SceneManager.LoadScene("manufacturingScene");
+            }
+        }
+    }
+    public void buyBag(int price, CustomerInfo customer)
+    {
+        youMoney += price;
+        yourMoneyText.text = youMoney.ToString();
+        clickBag.totalNumber--;
+    }
+
+    private void dataSave()
+    {
+        PlayerPrefs.SetInt("youMoney", youMoney);
+
+        for(int i = 0; i < bag.Length; i++)
+        {
+            PlayerPrefs.SetInt("bagTotalNumber" + i, bag[i].totalNumber);
+        }
+        PlayerPrefs.Save();
+    }
+
+    private void dataLoad()
+    {
+        youMoney = PlayerPrefs.GetInt("youMoney", 0);
+
+        for (int i = 0; i < bag.Length; i++)
+        {
+            bag[i].totalNumber = PlayerPrefs.GetInt("bagTotalNumber" + i, 1);
+        }
+    }
+
+    public void dataDelete()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
