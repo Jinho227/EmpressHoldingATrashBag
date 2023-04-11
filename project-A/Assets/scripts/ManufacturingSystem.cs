@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ManufacturingSystem : MonoBehaviour
 {
-   public void goStoreScene()
+    private int bagnum = 1;
+    public void bagchange(int i)
+    {
+        bagnum = i;
+    }
+    public void addbag()
+    {
+        PlayerPrefs.SetInt("bagTotalNumber" + bagnum, 1);
+    }
+    public void goStoreScene()
     {
         SceneManager.LoadScene("storeScene");
     }
