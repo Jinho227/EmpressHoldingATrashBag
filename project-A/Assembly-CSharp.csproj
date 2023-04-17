@@ -61,6 +61,7 @@
     <Compile Include="Assets\scripts\ChangeCursor.cs" />
     <Compile Include="Assets\scripts\BagItemInfo.cs" />
     <Compile Include="Assets\scripts\ok.cs" />
+    <Compile Include="Assets\scripts\BagMakeChaonge.cs" />
     <Compile Include="Assets\scripts\highbag.cs" />
     <Compile Include="Assets\scripts\ImageCutter.cs" />
     <Compile Include="Assets\scripts\lowbag.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="Assets\scripts\DrawLine.cs" />
     <Compile Include="Assets\scripts\management.cs" />
     <Compile Include="Assets\scripts\cutObject.cs" />
-    <Compile Include="Assets\scripts\BagMakeChaonge.cs" />
+    <Compile Include="Assets\scripts\DragAndDrop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
