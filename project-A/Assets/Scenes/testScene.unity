@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 85253196}
   - component: {fileID: 85253198}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: leather1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 363462809}
   - component: {fileID: 363462811}
   m_Layer: 5
-  m_Name: Image (7)
+  m_Name: leather3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 581466201}
   - component: {fileID: 581466200}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: leather3b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 794985846}
   - component: {fileID: 794985845}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: leather1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 848187808}
   - component: {fileID: 848187810}
   m_Layer: 5
-  m_Name: Image (8)
+  m_Name: leather4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 859261715}
   - component: {fileID: 859261714}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: leather2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 1372784203}
   - component: {fileID: 1372784202}
   m_Layer: 5
-  m_Name: Image
+  m_Name: table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1060,7 +1060,7 @@ GameObject:
   - component: {fileID: 1605273387}
   - component: {fileID: 1605273389}
   m_Layer: 5
-  m_Name: Image (6)
+  m_Name: leather2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 1760892894}
   - component: {fileID: 1760892893}
   m_Layer: 5
-  m_Name: Image
+  m_Name: bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1224,7 +1224,7 @@ GameObject:
   - component: {fileID: 1810536272}
   - component: {fileID: 1810536271}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: leather4b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1299,7 +1299,7 @@ GameObject:
   - component: {fileID: 1832838366}
   - component: {fileID: 1832838365}
   m_Layer: 5
-  m_Name: Image
+  m_Name: leather5b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1450,7 +1450,7 @@ GameObject:
   - component: {fileID: 1916811988}
   - component: {fileID: 1916811990}
   m_Layer: 5
-  m_Name: Image (9)
+  m_Name: leather5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
