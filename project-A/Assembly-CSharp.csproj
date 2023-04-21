@@ -68,11 +68,11 @@
     <Compile Include="Assets\scripts\bag.cs" />
     <Compile Include="Assets\scripts\ManufacturingSystem.cs" />
     <Compile Include="Assets\scripts\DrawLine.cs" />
+    <Compile Include="Assets\scripts\Line.cs" />
     <Compile Include="Assets\scripts\management.cs" />
+    <Compile Include="Assets\scripts\LineGenerator.cs" />
     <Compile Include="Assets\scripts\cutObject.cs" />
     <Compile Include="Assets\scripts\DragAndDrop.cs" />
-    <Compile Include="Assets\scripts\Line.cs" />
-    <Compile Include="Assets\scripts\LineGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -1,43 +1,32 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DrawLine : MonoBehaviour
 {
-    public RectTransform canvasRect;
-    public Image linePrefab;
+    public LineRenderer lineRenderer;
+    private int currentIndex;
+    public Vector2 objectSize;
 
-    private Image currentLine;
-    private Vector2 startPoint;
-
-    private void Update()
+    void Start()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            // 마우스 버튼이 눌렸을 때 새로운 선을 생성합니다.
-            currentLine = Instantiate(linePrefab, transform);
-            startPoint = GetMousePosInCanvas();
-            currentLine.rectTransform.anchoredPosition = startPoint;
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            // 마우스 버튼이 눌린 상태에서 마우스 위치까지 선을 그립니다.
-            Vector2 currentPoint = GetMousePosInCanvas();
-            currentLine.rectTransform.sizeDelta = new Vector2(Vector2.Distance(startPoint, currentPoint), 3f);
-            currentLine.rectTransform.right = (currentPoint - startPoint).normalized;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            // 마우스 버튼이 떼어졌을 때 선을 그리는 작업을 종료합니다.
-            currentLine = null;
-        }
+        currentIndex = 0;
+
     }
 
-    private Vector2 GetMousePosInCanvas()
+    void Update()
     {
-        // 마우스 위치를 캔버스 안의 위치로 변환합니다.
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 canvasSize = canvasRect.sizeDelta;
-        Vector2 canvasPos = canvasRect.position;
-        return (mousePos - canvasPos) / canvasSize * canvasRect.localScale.x;
+        if (Input.GetMouseButton(0))
+        {
+            // 마우스 위치 가져오기
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // 마우스 위치를 게임 오브젝트 경계선 내부로 제한
+            mousePosition.x = Mathf.Clamp(mousePosition.x, transform.position.x - objectSize.x / 2f, transform.position.x + objectSize.x / 2f);
+            mousePosition.y = Mathf.Clamp(mousePosition.y, transform.position.y - objectSize.y / 2f, transform.position.y + objectSize.y / 2f);
+
+            // 마우스 위치를 Line Renderer에 추가
+            currentIndex++;
+            lineRenderer.positionCount = currentIndex + 1;
+            lineRenderer.SetPosition(currentIndex, mousePosition);
+        }
     }
 }
