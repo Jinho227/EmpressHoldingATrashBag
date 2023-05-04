@@ -23,20 +23,39 @@ public class ItemDatabase : MonoBehaviour {
     void BuildDatabase()
     {
         items = new List<Item>() {
-            new Item(0, "고급스러워 보이는 원형천가방", "고급스러운 원형천가방이다.",
+            new Item(0, "고급스러워 보이는 원형천가방", "주운 가방",
             new Dictionary<string, int> {
-                { "Power", 15 },
-                { "Defence", 10 }
+                { "오염도", 15 },
             }),
-            new Item(1, "두꺼운 서민가방", "A pretty diamond.",
+            new Item(1, "두꺼운 서민가방", "주운 가방",
             new Dictionary<string, int> {
-                { "Value", 300 }
+                { "오염도", 30 }
             }),
-            new Item(2, "고급스러워 보이는 원형천가방(정면)", "A pick that could kill a vampire.",
+            new Item(2, "고급스러워 보이는 원형천가방(정면)", "주운 가방",
             new Dictionary<string, int> {
-                { "Power", 5 },
-                { "Mining", 20}
-            })
+                { "오염도", 5 },
+            }),
+            new Item(10, "검정 가죽", "가죽",
+            new Dictionary<string, int> {
+            }),
+            new Item(11, "황토색 가죽", "가죽",
+            new Dictionary<string, int> {
+            }),
+            new Item(12, "갈색 가죽", "가죽",
+            new Dictionary<string, int> {
+            }),
+            new Item(20, "서민 가방", "수제 가방",
+            new Dictionary<string, int> {
+                { "가격", 400 }
+            }),
+            new Item(21, "평민 가방", "수제 가방",
+            new Dictionary<string, int> {
+                { "가격", 1000 }
+            }),
+            new Item(22, "귀족 가방", "수제 가방",
+            new Dictionary<string, int> {
+                { "가격", 8000 }
+            }),
         };
     }
 }

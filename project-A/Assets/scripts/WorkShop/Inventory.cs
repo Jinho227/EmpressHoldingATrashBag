@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour {
         GiveItem(1);
         GiveItem(2);
         GiveItem(0);
+        GiveItem(10);
+        GiveItem(20);
     }
 
     void Update()

@@ -75,13 +75,15 @@
     <Compile Include="Assets\Scripts\cutObject.cs" />
     <Compile Include="Assets\Scripts\Recycling\RecyclingEventSystem.cs" />
     <Compile Include="Assets\Scripts\DragAndDrop.cs" />
-    <Compile Include="Assets\Scripts\WorkShop\Inventory.cs" />
-    <Compile Include="Assets\Scripts\WorkShop\ItemFollowMouse.cs" />
-    <Compile Include="Assets\Scripts\WorkShop\Tooltip.cs" />
-    <Compile Include="Assets\Scripts\WorkShop\UIItem.cs" />
-    <Compile Include="Assets\Scripts\WorkShop\ItemDatabase.cs" />
-    <Compile Include="Assets\Scripts\WorkShop\UIInventory.cs" />
-    <Compile Include="Assets\Scripts\WorkShop\Item.cs" />
+    <Compile Include="Assets\Scripts\Workshop\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Workshop\ItemFollowMouse.cs" />
+    <Compile Include="Assets\Scripts\Workshop\Tooltip.cs" />
+    <Compile Include="Assets\Scripts\Workshop\UIItem.cs" />
+    <Compile Include="Assets\Scripts\Workshop\ItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\Workshop\UIInventory.cs" />
+    <Compile Include="Assets\Scripts\Workshop\Item.cs" />
+    <Compile Include="Assets\Scripts\Workshop\WorkshopEventSystem.cs" />
+    <Compile Include="Assets\Scripts\Workshop\UIWorkshop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

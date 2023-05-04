@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ChangeCursor : MonoBehaviour
 {
-    [SerializeField] Texture2D defaultCursor;
-    [SerializeField] Texture2D cursorFiveFingers;
-    [SerializeField] Texture2D cursorGrab;
-
-    public void ChangeCursorN()
+    public Texture2D NomalCursor;
+    public Texture2D cursorFiveFingers;
+    public Texture2D cursorGrab;
+    public Texture2D cursorHammer;
+    public Texture2D cursorHammerDown;
+    public Texture2D cursorNeedle;
+    public enum cursorMode
     {
-        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.ForceSoftware);
+        Nomal, Hammer, needle
     }
+    private int cursorModeIndex = (int)cursorMode.Nomal;
 
-    public void ChangeCursorFiveFingers()
-    {
-        Cursor.SetCursor(cursorFiveFingers, Vector2.zero, CursorMode.ForceSoftware);
-    }
+    public int CursorModeIndex { get => cursorModeIndex; set => cursorModeIndex = value; }
 
-    public void ChangeCursorGrab()
+    public void ChangeCursorImage(Texture2D cursorImage)
     {
-        Cursor.SetCursor(cursorGrab, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorImage, Vector2.zero, CursorMode.ForceSoftware);
     }
 }

@@ -6,9 +6,9 @@ public class RecyclingEventSystem : MonoBehaviour
 {
     [SerializeField] ChangeCursor cursor;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        cursor.ChangeCursorFiveFingers();
+        cursor.ChangeCursorImage(cursor.cursorFiveFingers);
     }
 
     // Update is called once per frame
@@ -16,11 +16,11 @@ public class RecyclingEventSystem : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            cursor.ChangeCursorGrab();
+            cursor.ChangeCursorImage(cursor.cursorGrab);
         }
         if (Input.GetMouseButtonUp(0))
         {
-            cursor.ChangeCursorFiveFingers();
+            cursor.ChangeCursorImage(cursor.cursorFiveFingers);
         }
     }
 
