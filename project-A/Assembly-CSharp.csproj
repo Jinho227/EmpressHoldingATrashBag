@@ -57,33 +57,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\system.cs" />
+    <Compile Include="Assets\Scripts\Workshop\Inventory.cs" />
     <Compile Include="Assets\Scripts\CustomerInfo.cs" />
     <Compile Include="Assets\Scripts\ChangeCursor.cs" />
+    <Compile Include="Assets\Scripts\Workshop\ItemDatabase.cs" />
     <Compile Include="Assets\Scripts\BagItemInfo.cs" />
     <Compile Include="Assets\Scripts\ok.cs" />
     <Compile Include="Assets\Scripts\BagMakeChaonge.cs" />
+    <Compile Include="Assets\Scripts\Workshop\Tooltip.cs" />
     <Compile Include="Assets\Scripts\highbag.cs" />
+    <Compile Include="Assets\Scripts\Workshop\SewLeather.cs" />
     <Compile Include="Assets\Scripts\ImageCutter.cs" />
     <Compile Include="Assets\Scripts\lowbag.cs" />
+    <Compile Include="Assets\Scripts\Workshop\Item.cs" />
+    <Compile Include="Assets\Scripts\Workshop\ItemFollowMouse.cs" />
     <Compile Include="Assets\Scripts\bag.cs" />
+    <Compile Include="Assets\Scripts\Workshop\MouseDrawer.cs" />
     <Compile Include="Assets\Scripts\ManufacturingSystem.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
-    <Compile Include="Assets\Scripts\DrawLine.cs" />
+    <Compile Include="Assets\Scripts\Workshop\UIInventory.cs" />
+    <Compile Include="Assets\Scripts\Workshop\DrawLine.cs" />
     <Compile Include="Assets\Scripts\Line.cs" />
+    <Compile Include="Assets\Scripts\Workshop\WorkshopEventSystem.cs" />
+    <Compile Include="Assets\Scripts\Workshop\UIWorkshop.cs" />
     <Compile Include="Assets\Scripts\management.cs" />
     <Compile Include="Assets\Scripts\LineGenerator.cs" />
     <Compile Include="Assets\Scripts\cutObject.cs" />
+    <Compile Include="Assets\Scripts\Workshop\LineDrawer.cs" />
     <Compile Include="Assets\Scripts\Recycling\RecyclingEventSystem.cs" />
     <Compile Include="Assets\Scripts\DragAndDrop.cs" />
-    <Compile Include="Assets\Scripts\Workshop\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Workshop\ItemFollowMouse.cs" />
-    <Compile Include="Assets\Scripts\Workshop\Tooltip.cs" />
     <Compile Include="Assets\Scripts\Workshop\UIItem.cs" />
-    <Compile Include="Assets\Scripts\Workshop\ItemDatabase.cs" />
-    <Compile Include="Assets\Scripts\Workshop\UIInventory.cs" />
-    <Compile Include="Assets\Scripts\Workshop\Item.cs" />
-    <Compile Include="Assets\Scripts\Workshop\WorkshopEventSystem.cs" />
-    <Compile Include="Assets\Scripts\Workshop\UIWorkshop.cs" />
+    <Compile Include="Assets\Scripts\Workshop\LeatherItem.cs" />
+    <Compile Include="Assets\Scripts\Workshop\LeatherSetting.cs" />
+    <Compile Include="Assets\Scripts\Workshop\NeedleClose.cs" />
+    <Compile Include="Assets\Scripts\Workshop\ChangeStore.cs" />
+    <Compile Include="Assets\Scripts\Recycling\PickUpBagInfo.cs" />
+    <Compile Include="Assets\Scripts\TooltipFollowMouse.cs" />
+    <Compile Include="Assets\Scripts\Recycling\RecyclingTooltip.cs" />
+    <Compile Include="Assets\Scripts\Store\StoreTooltip.cs" />
+    <Compile Include="Assets\Scripts\Store\bagtooltip.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

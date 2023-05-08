@@ -6,10 +6,12 @@ using UnityEngine.EventSystems;
 
 public class UIItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler {
     public Item item;
+    public Inventory inventory;
     private Image spriteImage;
     private UIItem selectedItem;
     private Tooltip tooltip;
     private ChangeCursor cursor;
+    private int count = 0;
 
     void Awake()
     {
@@ -42,13 +44,17 @@ public class UIItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, 
         }
         else if(cursor.CursorModeIndex == 1)
         {
-
             DecompositionItem();
         }
         else if(cursor.CursorModeIndex == 2)
         {
 
         }
+    }
+
+    public int SettingLeather()
+    {
+        return this.item.id;
     }
 
     public void IsSelectedItem()
@@ -76,23 +82,40 @@ public class UIItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, 
 
     public void DecompositionItem()
     {
-        if (this.item != null)
+        if (this.item != null && (this.item.id < 10))
         {
-            if (this.item.id < 10)
+            if (count < 2)
             {
-                Item clone = new Item(selectedItem.item);
-                selectedItem.UpdateItem(this.item);
-                UpdateItem(clone);
+                GiveLeather(this.item.id);
+                count++;
             }
             else
             {
-                selectedItem.UpdateItem(this.item);
-                UpdateItem(null);
+                inventory.RemoveItem(this.item.id);
+                this.item = null;
+                spriteImage.color = Color.clear;
+                count = 0;
             }
         }
         else
         {
 
+        }
+    }
+
+    public void GiveLeather(int id)
+    {
+        if(id == 0)
+        {
+            inventory.GiveItem(10);
+        }
+        else if(id == 1)
+        {
+            inventory.GiveItem(11);
+        }
+        else if(id == 2)
+        {
+            inventory.GiveItem(12);
         }
     }
 

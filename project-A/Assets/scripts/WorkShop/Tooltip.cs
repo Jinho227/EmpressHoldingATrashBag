@@ -18,7 +18,7 @@ public class Tooltip : MonoBehaviour {
         {
             foreach(var stat in item.stats)
             {
-                statText += stat.Key.ToString() + ": " + stat.Value + "\n";
+                statText += stat.Key.ToString() + "\n";
             }
         }
 

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RecyclingEventSystem : MonoBehaviour
 {
     [SerializeField] ChangeCursor cursor;
+    [SerializeField] PickUpBagInfo[] bag;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,5 +27,29 @@ public class RecyclingEventSystem : MonoBehaviour
         }
     }
 
-    
+    public void ChangeScene()
+    {
+        dataSave();
+        SceneManager.LoadScene("WorkshopScene");
+    }
+
+    private void dataSave()
+    {
+        int index = 0;
+        for(int i = 0; i < 4; i++)
+        {
+            if(bag[i].bagid != -1)
+            {
+                PlayerPrefs.SetInt("PickUpItems" + i, bag[i].bagid);
+                index++;
+            }
+        }
+        PlayerPrefs.SetInt("PickUpItemsIndex", index);
+    }
+
+    public void dataDelete()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 }

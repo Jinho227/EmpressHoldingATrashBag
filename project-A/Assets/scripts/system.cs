@@ -70,21 +70,21 @@ public class system : MonoBehaviour
         {
             if(bag.bagQuality == customer[1].wantbagQuality)
             {
-                ctmDialog.text = "좋아요 얼마?";
+                ctmDialog.text = "오 이거 괜찮네요. 얼마에요?";
                 backClickCount = 0;
                 clickBag = bag;
             }
             else
             {
-                if (iscustomerGone(customer[0], backClickCount))
+                if (iscustomerGone(customer[1], backClickCount))
                 {
-                    ctmDialog.text = "갈게요";
+                    ctmDialog.text = "원하는게 없네요.그냥 갈게요.";
                     backClickCount = 0;
                     customers = true;
                 }
                 else
                 {
-                    ctmDialog.text = "다른건 없어요?";
+                    ctmDialog.text = "조금더 싼건 없나요?";
                     backClickCount++;
                 }
             }
@@ -213,7 +213,8 @@ public class system : MonoBehaviour
             if (customersnum > 2)
             {
                 dataSave();
-                SceneManager.LoadScene("manufacturingScene");
+                Debug.Log('A');
+                SceneManager.LoadScene("RecyclingScene");
             }
         }
     }
@@ -221,7 +222,7 @@ public class system : MonoBehaviour
     {
         youMoney += price;
         yourMoneyText.text = youMoney.ToString();
-        clickBag.totalNumber--;
+        clickBag.totalNumber = 0;
     }
 
     private void dataSave()
@@ -232,7 +233,7 @@ public class system : MonoBehaviour
         {
             PlayerPrefs.SetInt("bagTotalNumber" + i, bag[i].totalNumber);
         }
-        PlayerPrefs.Save();
+ 
     }
 
     private void dataLoad()
@@ -243,10 +244,31 @@ public class system : MonoBehaviour
         {
             bag[i].totalNumber = PlayerPrefs.GetInt("bagTotalNumber" + i, 1);
         }
+        PlayerItems();
     }
 
     public void dataDelete()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    private void PlayerItems()
+    {
+        int index = PlayerPrefs.GetInt("PlayerItemsIndex", 0);
+        for(int i = 0; i < index; i++)
+        {
+            int temp = PlayerPrefs.GetInt("playerItems" + i, -1);
+            if(temp == 20)
+            {
+                bag[1].totalNumber = 1;
+
+            }
+            else if(temp == 21)
+            {
+                bag[2].totalNumber = 1;
+
+            }
+        }
+
     }
 }

@@ -5,10 +5,16 @@ using UnityEngine;
 public class WorkshopEventSystem : MonoBehaviour
 {
     [SerializeField] ChangeCursor cursor;
+    [SerializeField] GameObject leatherPanel;
     // Start is called before the first frame update
     void Awake()
     {
         cursor.ChangeCursorImage(cursor.cursorFiveFingers);
+    }
+
+    void Start()
+    {
+        leatherPanel.SetActive(false);
     }
 
     // Update is called once per frame
