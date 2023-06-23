@@ -10,6 +10,6 @@
 판매 시스템   
 <img src="./screenshots/store.png">   
 재활용 시스템   
-<img src="./screenshots/rectcling.png">   
+<img src="./screenshots/recycling.png">   
 제작 시스템   
 <img src="./screenshots/workshop.png">   
